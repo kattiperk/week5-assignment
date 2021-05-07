@@ -1,0 +1,3 @@
+.char-list .card {
+    width: calc(25% - 1rem);
+}
