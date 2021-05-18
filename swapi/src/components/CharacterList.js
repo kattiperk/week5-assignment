@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './css/CharacterList.css';
 
 export default class CharacterList extends Component {
@@ -40,7 +41,7 @@ export default class CharacterList extends Component {
                     <div className=" d-flex justify-content-evenly flex-wrap">
                     {charList.map((character, id) =>
                         <div className="card mb-4 ml-2 mr-2" key={id}>
-                          <img src={character.url} className="card-img-top" alt={character.name}></img>
+                          {/* <img src={character.url} className="card-img-top" alt={character.name}></img> */}
                           <div className="card-body">
                             <h5 className="card-title">
                                 {character.name}
@@ -48,7 +49,8 @@ export default class CharacterList extends Component {
                             <p className="card-text">
                               Gender: {character.gender}
                             </p>
-                            <a href="/" className="btn btn-success">View profile</a>
+                            <Link to={'/' + id} className="btn btn-success">View profile</Link>
+                            {/* <a href="https://swapi.dev/api/people/1/" className="btn btn-success">View profile</a> */}
                           </div>
                         </div>
                     )}
