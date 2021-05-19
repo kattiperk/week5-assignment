@@ -49,8 +49,7 @@ export default class CharacterList extends Component {
                             <p className="card-text">
                               Gender: {character.gender}
                             </p>
-                            <Link to={'/' + id} className="btn btn-success">View profile</Link>
-                            {/* <a href="https://swapi.dev/api/people/1/" className="btn btn-success">View profile</a> */}
+                            <Link to={'/' + id} className="btn btn-success w-100">View full profile</Link>
                           </div>
                         </div>
                     )}
@@ -64,7 +63,6 @@ export default class CharacterList extends Component {
 
         return (
             <div>
-                <h1 className="display-3 text-light mt-4 mb-5">Star Wars People</h1>
                 {isLoading && <p>Loading...</p>}
                 {error && <p>Error. Please refresh and try again</p>}
                 {content}

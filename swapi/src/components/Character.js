@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './css/CharacterList.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapMarkerAlt, faUser, faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 
 export default class Character extends Component {
     constructor(props) {
@@ -45,36 +47,45 @@ export default class Character extends Component {
 
         if (char) {
             content = (
-                <div className="container char-list">
+                <div className="container">
                   <div className="">
                     <div className=" d-flex justify-content-center">
-                        <div className="card mb-4 ml-2 mr-2">
+                        <div className="card w-50 mb-4 ml-2 mr-2">
                           <div className="card-body">
-                            <h5 className="card-title">
+                            <h5 className="card-title h3">
                                 {char.name}
                             </h5>
-                            <p className="card-text">
-                                {species.name}, {char.gender}
-                            </p>
-                            <p className="card-text">
-                              Birth Year: {char.birth_year}
-                            </p>
-                            <p className="card-text">
-                                Hair colour: {char.hair_color}
-                            </p>
-                            <p className="card-text">
-                                Heght: {char.height}
-                            </p>
-                            <p className="card-text">
-                                Mass: {char.mass}
-                            </p>
-                            <p className="card-text">
-                                Home: {planet.name}
-                            </p>
-                            <p className="card-text">
-                                Speaks {species.language}
-                            </p>
-                            <Link to={'/'} className="btn btn-success">Go back</Link>
+                            <hr />
+                            <div className="d-flex align-items-left justify-content-between">
+                                <div>
+                                    <p className="card-text">
+                                        <FontAwesomeIcon icon={faUser} className="mr-1" />
+                                        {species.name}, {char.gender}
+                                    </p>
+                                    <p className="card-text">
+                                        <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-1" />
+                                        {planet.name}
+                                    </p>
+                                    <p className="card-text">
+                                    Born {char.birth_year}
+                                    </p>
+                                </div>
+                                <div>
+                                    <p className="card-text">
+                                        {char.height} cm / {char.mass} kg
+                                    </p>
+                                    <p className="card-text">
+                                        Hair colour is {char.hair_color}
+                                    </p>
+                                    <p className="card-text">
+                                        Speaks {species.language}
+                                    </p>
+                                </div>
+                            </div>
+                            <Link to={'/'} className="btn btn-outline-secondary mt-4">
+                                <FontAwesomeIcon icon={faLongArrowAltLeft} className="mr-2" />
+                                Go back
+                            </Link>
                           </div>
                         </div>
                     </div>
@@ -85,7 +96,6 @@ export default class Character extends Component {
 
         return (
             <div>
-                <h1 className="display-3 text-light mt-4 mb-5">Person</h1>
                 {isLoading && <p>Loading...</p>}
                 {error && <p>Error. Please refresh and try again</p>}
                 {content}
