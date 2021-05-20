@@ -59,14 +59,12 @@ export default class CharacterList extends Component {
             );
         }
 
-        console.log(charList)
-
         return (
-            <div>
-                {isLoading && <p>Loading...</p>}
-                {error && <p>Error. Please refresh and try again</p>}
-                {content}
-            </div>
+          <div>
+            {isLoading && <p>Loading...</p>}
+            {error && <p>Error. Please refresh and try again</p>}
+            {content}
+          </div>
         )
     }
 }

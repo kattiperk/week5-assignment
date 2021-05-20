@@ -8,20 +8,15 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function App() {
   return (
     <div className="container">
-      
-     
-
       <Router>
-      <Nav />
+        <Nav />
 
-      <Switch>
-        <Route exact path="/" component={CharacterList} />
-        <Route path="/gif" component={Gif} />
-        <Route exact path="/:id" component={Character} />
-        
+        <Switch>
+          <Route exact path="/" component={CharacterList} />
+          <Route path="/gif" component={Gif} />
+          <Route exact path="/:id" component={Character} />
         </Switch>
       </Router>
-      
     </div>
   );
 }
